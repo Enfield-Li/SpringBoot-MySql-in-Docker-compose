@@ -20,3 +20,10 @@ FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 COPY /target/demo-0.0.1-SNAPSHOT.jar demo.jar
 ENTRYPOINT ["java","-jar","demo.jar"]
+
+# FROM maven:3.8.2-jdk-8
+# WORKDIR /spring-app
+# EXPOSE 8080
+# COPY . .
+# RUN mvn clean install
+# CMD mvn spring-boot:run

@@ -1,0 +1,32 @@
+services:
+  spring:
+    container_name: spring-backend
+    # image: openjdk:8-jdk-alpine
+    build: .
+    # ports:
+    #   - 8080:8080
+    # stdin_open: true
+    # tty: true
+    # volumes:
+    #   - .:/app
+    # networks:
+    #   - spring-mysql
+    # environment:
+    #   MYSQL_HOST: mysql
+
+#   mysql:
+#     container_name: mysql-db
+#     image: mysql:5.7
+#     networks:
+#       - spring-mysql
+#     volumes:
+#       - springboot:/var/lib/mysql
+#     environment:
+#       MYSQL_ROOT_PASSWORD: password
+#       MYSQL_DATABASE: spring-test
+
+# networks:
+#   spring-mysql:
+
+# volumes:
+#   springboot:
