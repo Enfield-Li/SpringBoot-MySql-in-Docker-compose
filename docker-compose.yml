@@ -23,4 +23,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
 
-# run: docker compose up -d
+# 1. run: docker compose up -d 
+# 2. spring-backend will fail for "communications link failure"
+  # 2.5 in the background, mysql grants privilege to "root" user: GRANT ALL ON `spring_test`.* TO 'root'@'%';
+# 3. restart spring-backend container
