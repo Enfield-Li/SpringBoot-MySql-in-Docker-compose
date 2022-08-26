@@ -6,28 +6,21 @@ services:
     build: .
     ports:
       - 8080:8080
-    volumes:
-      - .:/app
-    stdin_open: true
-    tty: true
     environment:
       MYSQL_HOST: mysql
-      # SPRING_APPLICATION_JSON: '{
-      #     "spring.datasource.url=jdbc:mysql://mysqldb:3306/spring-test",
-      #     "spring.datasource.username" : "root",
-      #     "spring.datasource.password" : "password",
-      #     "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-      #     "spring.jpa.hibernate.ddl-auto" : "update"
-      #   }'
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url=jdbc:mysql": "//jdbc:mysql:3306/spring-test",
+        "spring.datasource.username": "root",
+        "spring.datasource.password": "password",
+        "spring.jpa.hibernate.ddl-auto": "update"
+        }'
 
   mysql:
     container_name: mysql-db
     image: mysql:5.7
     volumes:
-      - springboot:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: spring-test
 
-volumes:
-  springboot:
+# run: docker compose up -d
